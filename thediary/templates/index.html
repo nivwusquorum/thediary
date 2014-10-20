@@ -1,0 +1,26 @@
+{% if extra_message %}
+{{ extra_message }}<br /><br />
+{% endif %}
+<b> Add an event </b>
+<form method="post" action="">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div><br />
+    {% endfor %}
+    <input type="submit" name="submit_event" value="Submit" />
+</form>
+
+<b> Add an event category </b>
+<form method="post" action="">
+    {% csrf_token %}
+    {% for field in form_category %}
+        <div>
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div><br />
+    {% endfor %}
+    <input type="submit" name="submit_category" value="Submit" />
+</form>
